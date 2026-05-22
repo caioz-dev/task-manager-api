@@ -122,3 +122,11 @@ O endpoint `GET /tasks/` aceita query param `?completed=true/false` para filtrar
 - A dependência `get_current_user` em `app/dependencies.py` é usada em todos os endpoints protegidos
 - Autenticação via JWT — o token é gerado no login e validado a cada requisição protegida
 - As tabelas são criadas automaticamente pelo SQLAlchemy no startup (`main.py`) — sem Alembic em desenvolvimento
+
+## Checklist para novos endpoints
+
+Ao criar um novo endpoint, as seguintes etapas são obrigatórias:
+
+1. **Schema Pydantic** — criar ou atualizar o schema correspondente em `app/schemas/` (request body, response model e eventuais schemas intermediários)
+2. **Testes unitários** — criar testes para o novo endpoint em `tests/`, cobrindo o caso de sucesso e os principais casos de erro (ex: não autenticado, recurso não encontrado, dados inválidos)
+3. **README** — atualizar a tabela de endpoints em `README.md` com o novo método, rota, descrição e se exige autenticação
