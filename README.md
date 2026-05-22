@@ -64,6 +64,37 @@ A API estará disponível em `http://localhost:8000`.
 
 Documentação interativa (Swagger): `http://localhost:8000/docs`
 
+## Rodando com Docker
+
+Pré-requisito: [Docker](https://www.docker.com/) instalado.
+
+```bash
+docker-compose up --build
+```
+
+Isso sobe dois containers automaticamente:
+- **db** — PostgreSQL 15 com volume persistente
+- **api** — FastAPI rodando na porta 8000
+
+A API estará disponível em `http://localhost:8000`.
+
+Documentação interativa (Swagger): `http://localhost:8000/docs`
+
+Para rodar em background:
+```bash
+docker-compose up --build -d
+```
+
+Para parar os containers:
+```bash
+docker-compose down
+```
+
+Para parar e apagar os dados do banco:
+```bash
+docker-compose down -v
+```
+
 ## Endpoints
 
 ### Auth
